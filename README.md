@@ -1,20 +1,30 @@
 # Instagram @btlucao
 
-Repositorio de conteudo e estrategia para o perfil @btlucao no Instagram.
+Repositório de conteúdo e estratégia para o perfil @btlucao no Instagram.
 
 ## Objetivo
 
-Crescer o perfil de forma organica com conteudo de qualidade.
+Crescer o perfil de forma orgânica com conteúdo de qualidade e consistência.
 
-## Categorias de conteudo
+## Categorias de conteúdo
 
-- Posts no feed
-- Stories
-- Reels
+- **Feed** — posts planejados com identidade visual consistente
+- **Stories** — conteúdo diário e interativo (enquetes, perguntas, contagem regressiva)
+- **Reels** — vídeos curtos para alcance orgânico
 
-## Frequencia de postagem
+## Frequência de postagem
 
-A definir.
+| Formato | Frequência sugerida |
+|---------|-------------------|
+| Feed    | 3x por semana     |
+| Stories | Diário            |
+| Reels   | 2x por semana     |
+
+## Métricas acompanhadas
+
+- Alcance e impressões
+- Taxa de engajamento (curtidas + comentários / seguidores)
+- Crescimento de seguidores por semana
 
 ## Contato
 
