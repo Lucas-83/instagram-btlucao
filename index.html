@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BTLucão | Treinador de Beach Tennis</title>
+  <meta name="description" content="BTLucão - Treinador profissional de Beach Tennis. Aulas individuais e em grupo. Transmissões ao vivo pelo YouTube. Itumbiara - GO e diversas cidades." />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --amarelo: #F5C518;
+      --azul: #0B3D91;
+      --azul-claro: #1565C0;
+      --areia: #F4ECD8;
+      --escuro: #0a0a0a;
+      --cinza: #1a1a1a;
+      --branco: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--escuro);
+      color: var(--branco);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(245,197,24,0.15);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 42px;
+      filter: invert(1) sepia(1) saturate(5) hue-rotate(5deg);
+    }
+
+    .nav-logo span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--amarelo);
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--branco);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--amarelo); }
+
+    .nav-cta {
+      background: var(--amarelo);
+      color: var(--escuro) !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+    }
+
+    .nav-cta:hover { background: #e0b000 !important; color: var(--escuro) !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      background: linear-gradient(160deg, #0a0a0a 0%, #0B3D91 60%, #0a0a0a 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(245,197,24,0.12) 0%, transparent 65%);
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+    .hero-logo {
+      width: 140px;
+      margin-bottom: 24px;
+      filter: invert(1) sepia(1) saturate(5) hue-rotate(5deg);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--amarelo);
+      color: var(--escuro);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: 4px;
+      color: var(--branco);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span { color: var(--amarelo); }
+
+    .hero-slogan {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      color: var(--amarelo);
+      letter-spacing: 4px;
+      margin-bottom: 8px !important;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: rgba(255,255,255,0.75);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--amarelo);
+      color: var(--escuro);
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); background: #e0b000; }
+
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.4);
+      color: var(--branco);
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--amarelo); color: var(--amarelo); transform: translateY(-2px); }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-down::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.3);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* SECTIONS */
+    section { padding: 96px 24px; }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-tag {
+      display: inline-block;
+      color: var(--amarelo);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .section-title span { color: var(--amarelo); }
+
+    .section-sub {
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+
+    /* SOBRE */
+    #sobre { background: var(--cinza); }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .sobre-logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--azul) 0%, #0a0a0a 100%);
+      border-radius: 16px;
+      padding: 60px;
+      aspect-ratio: 1;
+    }
+
+    .sobre-logo-wrap img {
+      width: 100%;
+      max-width: 260px;
+      filter: invert(1) sepia(1) saturate(5) hue-rotate(5deg);
+    }
+
+    .sobre-text .section-sub { max-width: 100%; margin-bottom: 32px; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .stat {
+      background: rgba(245,197,24,0.08);
+      border: 1px solid rgba(245,197,24,0.2);
+      border-radius: 8px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      color: var(--amarelo);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* SERVIÇOS */
+    #servicos { background: var(--escuro); }
+
+    .servicos-header { margin-bottom: 56px; }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--cinza);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 36px 28px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .card:hover {
+      border-color: var(--amarelo);
+      transform: translateY(-4px);
+    }
+
+    .card-icon {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      color: var(--amarelo);
+    }
+
+    .card p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* YOUTUBE */
+    #youtube { background: var(--azul); }
+
+    .yt-header { margin-bottom: 48px; }
+
+    .yt-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .yt-card {
+      background: rgba(0,0,0,0.3);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.3s;
+    }
+
+    .yt-card:hover { transform: translateY(-4px); }
+
+    .yt-embed-wrap {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+
+    .yt-embed-wrap iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    .yt-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .yt-card-body { padding: 20px; }
+
+    .yt-card-body h4 {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    .yt-card-body p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.82rem;
+    }
+
+    .yt-cta { text-align: center; }
+
+    .btn-youtube {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #FF0000;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn-youtube:hover { transform: translateY(-2px); background: #cc0000; }
+
+    /* INSTAGRAM */
+    #instagram { background: var(--cinza); }
+
+    .ig-header { margin-bottom: 48px; }
+
+    .ig-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .ig-item {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .ig-item:hover { transform: scale(1.04); opacity: 0.9; }
+
+    .ig-cta { text-align: center; }
+
+    .btn-instagram {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .btn-instagram:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    /* CONTATO */
+    #contato { background: var(--escuro); }
+
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contato-info { }
+
+    .contato-info .section-sub { margin-bottom: 40px; }
+
+    .contato-items { display: flex; flex-direction: column; gap: 20px; }
+
+    .contato-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
+      background: var(--cinza);
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.06);
+      text-decoration: none;
+      color: var(--branco);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .contato-item:hover { border-color: var(--amarelo); transform: translateX(4px); }
+
+    .contato-item-icon { font-size: 1.6rem; }
+
+    .contato-item-text small {
+      display: block;
+      color: var(--amarelo);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .contato-item-text span { font-size: 0.95rem; font-weight: 600; }
+
+    .contato-form {
+      background: var(--cinza);
+      border-radius: 12px;
+      padding: 40px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .contato-form h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      margin-bottom: 28px;
+      color: var(--amarelo);
+    }
+
+    .form-group { margin-bottom: 20px; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      padding: 12px 16px;
+      color: var(--branco);
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--amarelo); }
+
+    .form-group select option { background: var(--cinza); }
+
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .btn-whatsapp {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-whatsapp:hover { background: #1da851; transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer {
+      background: #050505;
+      border-top: 1px solid rgba(245,197,24,0.15);
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo img {
+      height: 36px;
+      filter: invert(1) sepia(1) saturate(5) hue-rotate(5deg);
+    }
+
+    .footer-logo span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      color: var(--amarelo);
+      letter-spacing: 2px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      list-style: none;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--amarelo); }
+
+    footer p {
+      color: rgba(255,255,255,0.25);
+      font-size: 0.78rem;
+    }
+
+    /* WHATSAPP FIXO */
+    .wpp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 99;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      text-decoration: none;
+      font-size: 1.6rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .wpp-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+
+      .sobre-grid,
+      .contato-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      .sobre-logo-wrap { padding: 40px; }
+
+      .cards-grid { grid-template-columns: 1fr; }
+
+      .yt-cards { grid-template-columns: 1fr; }
+
+      .ig-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .stats { grid-template-columns: repeat(3, 1fr); }
+
+      .contato-form { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <img src="logo_lucao.png" alt="BTLucão" />
+      <span>BTLucão</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#servicos">Aulas</a></li>
+      <li><a href="#youtube">YouTube</a></li>
+      <li><a href="#instagram">Instagram</a></li>
+      <li><a href="#contato" class="nav-cta">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <img src="logo_lucao.png" alt="BTLucão" class="hero-logo" />
+      <div class="hero-tag">Treinador de Beach Tennis</div>
+      <h1>BT<span>Lucão</span></h1>
+      <p class="hero-slogan">🏆 Fábrica de Campeões</p>
+      <p>Treinamento de alto nível, transmissões ao vivo e paixão pelo Beach Tennis. De Itumbiara para todo o Brasil.</p>
+      <div class="hero-btns">
+        <a href="#contato" class="btn-primary">Quero treinar</a>
+        <a href="https://www.youtube.com/@BTlucao" target="_blank" class="btn-outline">▶ Assistir transmissões</a>
+      </div>
+    </div>
+    <div class="scroll-down">scroll</div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="container">
+      <div class="sobre-grid">
+        <div class="sobre-logo-wrap">
+          <img src="logo_lucao.png" alt="BTLucão" />
+        </div>
+        <div class="sobre-text">
+          <span class="section-tag">Quem sou eu</span>
+          <h2 class="section-title">Paixão pelo <span>Beach Tennis</span></h2>
+          <p class="section-sub">
+            Sou Lucão, treinador profissional de Beach Tennis baseado em Itumbiara — GO. Atuo em diversas cidades levando treino de qualidade para todos os níveis, do iniciante ao avançado. Além das quadras, transmito jogos e torneios ao vivo pelo YouTube, conectando a comunidade do Beach Tennis em todo o Brasil.
+          </p>
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-num">🏖️</div>
+              <div class="stat-label">Beach Tennis</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">📍</div>
+              <div class="stat-label">Várias cidades</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">🎥</div>
+              <div class="stat-label">Lives no YT</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="container">
+      <div class="servicos-header">
+        <span class="section-tag">O que ofereço</span>
+        <h2 class="section-title">Modalidades de <span>Treino</span></h2>
+        <p class="section-sub">Para todos os níveis e objetivos. Escolha a modalidade que mais combina com você.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🎾</div>
+          <h3>Aula Individual</h3>
+          <p>Atenção 100% focada no seu desenvolvimento. Ideal para evoluir mais rápido, corrigir técnica e alcançar seus objetivos no Beach Tennis.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">👥</div>
+          <h3>Aula em Grupo</h3>
+          <p>Aprenda jogando com outros alunos. Ambiente descontraído, competitivo e cheio de energia. Perfeito para evoluir e fazer amigos na areia.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏆</div>
+          <h3>Preparação para Torneios</h3>
+          <p>Treinamento específico para competição. Estratégia, condicionamento físico e mental para você chegar nos torneios pronto para vencer.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌱</div>
+          <h3>Iniciantes</h3>
+          <p>Nunca jogou Beach Tennis? Sem problema. Começo do zero com uma metodologia clara, divertida e eficiente para você entrar no jogo.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Alta Performance</h3>
+          <p>Para jogadores experientes que querem o próximo nível. Foco em técnica avançada, posicionamento, leitura de jogo e consistência.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📍</div>
+          <h3>Diversas Cidades</h3>
+          <p>Atendo em Itumbiara e diversas outras cidades. Entre em contato para verificar agenda na sua cidade e marcar uma aula.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YOUTUBE -->
+  <section id="youtube">
+    <div class="container">
+      <div class="yt-header">
+        <span class="section-tag">Canal no YouTube</span>
+        <h2 class="section-title">Transmissões ao <span>Vivo</span></h2>
+        <p class="section-sub">Assista torneios e jogos de Beach Tennis transmitidos ao vivo. Inscreva-se no canal para não perder nenhuma transmissão.</p>
+      </div>
+      <div class="yt-embed-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/fpYhwOhI_u0"
+          title="BTLucão - Beach Tennis"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="yt-cta">
+        <a href="https://www.youtube.com/@BTlucao" target="_blank" class="btn-youtube">
+          ▶ Acessar canal no YouTube
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section id="instagram">
+    <div class="container">
+      <div class="ig-header">
+        <span class="section-tag">Redes Sociais</span>
+        <h2 class="section-title">Siga no <span>Instagram</span></h2>
+        <p class="section-sub">Conteúdo diário sobre Beach Tennis, bastidores dos treinos, dicas e muito mais. Vem nos seguir!</p>
+      </div>
+      <div class="ig-grid">
+        <div class="ig-item">🎾</div>
+        <div class="ig-item">🏖️</div>
+        <div class="ig-item">🏆</div>
+        <div class="ig-item">⚡</div>
+      </div>
+      <div class="ig-cta">
+        <a href="https://www.instagram.com/btlucao" target="_blank" class="btn-instagram">
+          📷 @btlucao no Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="container">
+      <div class="contato-grid">
+        <div class="contato-info">
+          <span class="section-tag">Fale comigo</span>
+          <h2 class="section-title">Vamos <span>Jogar?</span></h2>
+          <p class="section-sub">Entre em contato para agendar sua aula, tirar dúvidas ou saber mais sobre meu trabalho. Respondo rápido!</p>
+          <div class="contato-items">
+            <a href="https://wa.me/5564992676222" target="_blank" class="contato-item">
+              <span class="contato-item-icon">💬</span>
+              <div class="contato-item-text">
+                <small>WhatsApp</small>
+                <span>(64) 99267-6222</span>
+              </div>
+            </a>
+            <a href="https://www.instagram.com/btlucao" target="_blank" class="contato-item">
+              <span class="contato-item-icon">📷</span>
+              <div class="contato-item-text">
+                <small>Instagram</small>
+                <span>@btlucao</span>
+              </div>
+            </a>
+            <a href="https://www.youtube.com/@BTlucao" target="_blank" class="contato-item">
+              <span class="contato-item-icon">▶</span>
+              <div class="contato-item-text">
+                <small>YouTube</small>
+                <span>@BTlucao</span>
+              </div>
+            </a>
+            <div class="contato-item" style="cursor:default;">
+              <span class="contato-item-icon">📍</span>
+              <div class="contato-item-text">
+                <small>Localização</small>
+                <span>Itumbiara — GO e diversas cidades</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contato-form">
+          <h3>Agende sua Aula</h3>
+          <div class="form-group">
+            <label>Seu nome</label>
+            <input type="text" id="nome" placeholder="Como posso te chamar?" />
+          </div>
+          <div class="form-group">
+            <label>Modalidade de interesse</label>
+            <select id="modalidade">
+              <option value="">Selecione uma opção</option>
+              <option>Aula Individual</option>
+              <option>Aula em Grupo</option>
+              <option>Preparação para Torneio</option>
+              <option>Iniciantes</option>
+              <option>Alta Performance</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mensagem</label>
+            <textarea id="mensagem" placeholder="Conta um pouco sobre você e sua experiência com beach tennis..."></textarea>
+          </div>
+          <button class="btn-whatsapp" onclick="enviarWhatsApp()">
+            💬 Enviar pelo WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="logo_lucao.png" alt="BTLucão" />
+        <span>BTLucão</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Aulas</a></li>
+        <li><a href="#youtube">YouTube</a></li>
+        <li><a href="#instagram">Instagram</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <p>© 2025 BTLucão · Treinador de Beach Tennis · Itumbiara — GO</p>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLUTUANTE -->
+  <a href="https://wa.me/5564992676222" target="_blank" class="wpp-float" title="Falar no WhatsApp">💬</a>
+
+  <script>
+    function enviarWhatsApp() {
+      const nome = document.getElementById('nome').value.trim();
+      const modalidade = document.getElementById('modalidade').value;
+      const mensagem = document.getElementById('mensagem').value.trim();
+
+      if (!nome) { alert('Por favor, informe seu nome.'); return; }
+
+      let texto = `Olá Lucão! Me chamo *${nome}*`;
+      if (modalidade) texto += ` e tenho interesse em *${modalidade}*`;
+      if (mensagem) texto += `.\n\n${mensagem}`;
+      texto += `\n\nVi seu site btlucao.com.br 🎾`;
+
+      const url = `https://wa.me/5564992676222?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    }
+
+    // Nav ativo no scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--amarelo)' : '';
+      });
+    });
+  </script>
+</body>
+</html>
