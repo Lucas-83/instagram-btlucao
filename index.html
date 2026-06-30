@@ -259,6 +259,98 @@
       line-height: 1.7;
     }
 
+    /* HISTÓRIA */
+    .historia-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .historia-p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .historia-p strong { color: var(--amarelo); }
+
+    .historia-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .hstat {
+      background: rgba(245,197,24,0.08);
+      border: 1px solid rgba(245,197,24,0.2);
+      border-radius: 8px;
+      padding: 20px 12px;
+      text-align: center;
+    }
+
+    .hstat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      color: var(--amarelo);
+      line-height: 1;
+    }
+
+    .hstat-label {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .historia-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .historia-card {
+      background: var(--cinza);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .historia-card:hover { border-color: var(--amarelo); transform: translateX(6px); }
+
+    .historia-card.destaque {
+      border-color: rgba(245,197,24,0.4);
+      background: rgba(245,197,24,0.06);
+    }
+
+    .hcard-icon { font-size: 2rem; flex-shrink: 0; }
+
+    .historia-card h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      color: var(--amarelo);
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .historia-card p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .historia-grid { grid-template-columns: 1fr; gap: 40px; }
+      .historia-stats { grid-template-columns: repeat(3, 1fr); }
+    }
+
     /* SOBRE */
     #sobre { background: var(--cinza); }
 
@@ -708,6 +800,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#historia">História</a></li>
       <li><a href="#servicos">Aulas</a></li>
       <li><a href="#youtube">YouTube</a></li>
       <li><a href="#instagram">Instagram</a></li>
@@ -757,6 +850,52 @@
               <div class="stat-num">🎥</div>
               <div class="stat-label">Lives no YT</div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINHA HISTÓRIA -->
+  <section id="historia" style="background: var(--escuro); padding: 96px 24px;">
+    <div class="container">
+      <div class="historia-grid">
+        <div class="historia-text">
+          <span class="section-tag">Minha Trajetória</span>
+          <h2 class="section-title">Minha <span>História</span></h2>
+          <p class="historia-p">Tudo começou em <strong>2016</strong>, quando descobri o Beach Tennis como jogador e me apaixonei pela modalidade de imediato. A areia, a raquete e a competição criaram em mim uma chama que nunca mais se apagou.</p>
+          <p class="historia-p">Em <strong>2018</strong>, dei um passo que mudou minha vida: me tornei treinador. Desde então, tenho dedicado minha carreira a formar atletas amadores e profissionais, levando o Beach Tennis a um novo nível em cada quadra que piso.</p>
+          <p class="historia-p">Ao longo dessa jornada, coleciono <strong>conquistas extremamente relevantes em todas as categorias</strong> — do amador ao profissional — construindo junto com meus atletas uma história de superação, evolução e vitórias.</p>
+          <div class="historia-stats">
+            <div class="hstat">
+              <div class="hstat-num">2016</div>
+              <div class="hstat-label">Início no Beach Tennis</div>
+            </div>
+            <div class="hstat">
+              <div class="hstat-num">2018</div>
+              <div class="hstat-label">Início como Treinador</div>
+            </div>
+            <div class="hstat">
+              <div class="hstat-num">🏆</div>
+              <div class="hstat-label">Conquistas em todas as categorias</div>
+            </div>
+          </div>
+        </div>
+        <div class="historia-visual">
+          <div class="historia-card">
+            <div class="hcard-icon">🎾</div>
+            <h4>Jogador</h4>
+            <p>2016 — Paixão pelo Beach Tennis nasce nas quadras de areia</p>
+          </div>
+          <div class="historia-card destaque">
+            <div class="hcard-icon">📋</div>
+            <h4>Treinador</h4>
+            <p>2018 — Começa a formar campeões amadores e profissionais</p>
+          </div>
+          <div class="historia-card">
+            <div class="hcard-icon">🏆</div>
+            <h4>Fábrica de Campeões</h4>
+            <p>Conquistas em todas as categorias pelo Brasil</p>
           </div>
         </div>
       </div>
