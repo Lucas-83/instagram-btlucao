@@ -101,6 +101,35 @@
       overflow: hidden;
     }
 
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .hero-img-wrap {
+      flex-shrink: 0;
+    }
+
+    .hero-side-img {
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
+      border-radius: 50%;
+      box-shadow: 0 0 40px rgba(245,197,24,0.25);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner { flex-direction: column; gap: 24px; }
+      .hero-side-img { width: 140px; height: 140px; }
+    }
+
     .hero::before {
       content: '';
       position: absolute;
@@ -811,15 +840,20 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-content">
-      <div class="hero-fabrica">🏆 FÁBRICA DE CAMPEÕES</div>
-      <img src="logo_lucao.png" alt="BTLucão" class="hero-logo" />
-      <div class="hero-tag">Treinador de Beach Tennis</div>
-      <h1>BT<span>Lucão</span></h1>
-      <p>Treinamento de alto nível, transmissões ao vivo e paixão pelo Beach Tennis. De Itumbiara para todo o Brasil.</p>
-      <div class="hero-btns">
-        <a href="#contato" class="btn-primary">Quero treinar</a>
-        <a href="https://www.youtube.com/@BTlucao" target="_blank" class="btn-outline">▶ Assistir transmissões</a>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-fabrica">🏆 FÁBRICA DE CAMPEÕES</div>
+        <img src="logo_lucao.png" alt="BTLucão" class="hero-logo" />
+        <div class="hero-tag">Treinador de Beach Tennis</div>
+        <h1>BT<span>Lucão</span></h1>
+        <p>Treinamento de alto nível, transmissões ao vivo e paixão pelo Beach Tennis. De Itumbiara para todo o Brasil.</p>
+        <div class="hero-btns">
+          <a href="#contato" class="btn-primary">Quero treinar</a>
+          <a href="https://www.youtube.com/@BTlucao" target="_blank" class="btn-outline">▶ Assistir transmissões</a>
+        </div>
+      </div>
+      <div class="hero-img-wrap">
+        <img src="fotos-site.jpg" alt="Cuidado Beach Tennis Vicia" class="hero-side-img" />
       </div>
     </div>
     <div class="scroll-down">scroll</div>
@@ -930,7 +964,7 @@
         <div class="card">
           <div class="card-icon">🌱</div>
           <h3>Iniciantes</h3>
-          <p>Nunca jogou Beach Tennis? Sem problema. Começo do zero com uma metodologia clara, divertida e eficiente para você entrar no jogo.</p>
+          <p>Nunca jogou Beach Tennis? Sem problema. Começamos do zero com uma metodologia clara, divertida e eficiente para você entrar no jogo.</p>
         </div>
         <div class="card">
           <div class="card-icon">⚡</div>
@@ -952,7 +986,7 @@
       <div class="yt-header">
         <span class="section-tag">Canal no YouTube</span>
         <h2 class="section-title">Transmissões ao <span>Vivo</span></h2>
-        <p class="section-sub">Assista torneios e jogos de Beach Tennis transmitidos ao vivo. Inscreva-se no canal para não perder nenhuma transmissão.</p>
+        <p class="section-sub">Assista a torneios e jogos de Beach Tennis transmitidos ao vivo. Inscreva-se no canal para não perder nenhuma transmissão.</p>
       </div>
       <div class="yt-embed-wrap">
         <iframe
@@ -977,7 +1011,7 @@
       <div class="ig-header">
         <span class="section-tag">Redes Sociais</span>
         <h2 class="section-title">Siga no <span>Instagram</span></h2>
-        <p class="section-sub">Conteúdo diário sobre Beach Tennis, bastidores dos treinos, dicas e muito mais. Vem nos seguir!</p>
+        <p class="section-sub">Conteúdo diário sobre Beach Tennis, bastidores dos treinos, dicas e muito mais. Venha nos seguir!</p>
       </div>
       <div class="ig-grid">
         <div class="ig-item">🎾</div>
@@ -1076,7 +1110,7 @@
         <li><a href="#instagram">Instagram</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
-      <p>© 2025 BTLucão · Treinador de Beach Tennis · Itumbiara — GO</p>
+      <p>© 2026 BTLucão · Treinador de Beach Tennis · Itumbiara — GO</p>
     </div>
   </footer>
 
