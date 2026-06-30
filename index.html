@@ -482,6 +482,49 @@
       line-height: 1.7;
     }
 
+    /* GALERIA */
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .galeria-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+    }
+
+    .galeria-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .galeria-item:hover img { transform: scale(1.06); }
+
+    .galeria-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+      color: var(--amarelo);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      padding: 20px 16px 12px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .galeria-item:hover .galeria-overlay { opacity: 1; }
+
+    @media (max-width: 768px) {
+      .galeria-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     /* YOUTUBE */
     #youtube { background: var(--azul); }
 
@@ -832,6 +875,7 @@
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#historia">História</a></li>
       <li><a href="#servicos">Aulas</a></li>
+      <li><a href="#conquistas">Conquistas</a></li>
       <li><a href="#youtube">YouTube</a></li>
       <li><a href="#instagram">Instagram</a></li>
       <li><a href="#contato" class="nav-cta">Contato</a></li>
@@ -975,6 +1019,33 @@
           <div class="card-icon">📍</div>
           <h3>Diversas Cidades</h3>
           <p>Atendo em Itumbiara e diversas outras cidades. Entre em contato para verificar agenda na sua cidade e marcar uma aula.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA DE CONQUISTAS -->
+  <section id="conquistas" style="background: var(--cinza); padding: 96px 24px;">
+    <div class="container">
+      <span class="section-tag">Resultados</span>
+      <h2 class="section-title" style="margin-bottom: 16px;">Galeria de <span>Conquistas</span></h2>
+      <p class="section-sub" style="margin-bottom: 48px;">Momentos de vitória dos nossos atletas. Cada troféu representa dedicação, treino e muita garra.</p>
+      <div class="galeria-grid">
+        <div class="galeria-item">
+          <img src="conquista1.jpg" alt="Conquista BTLucão" />
+          <div class="galeria-overlay">🏆 Campeões</div>
+        </div>
+        <div class="galeria-item">
+          <img src="conquista2.jpg" alt="Conquista BTLucão" />
+          <div class="galeria-overlay">🏆 Campeões</div>
+        </div>
+        <div class="galeria-item">
+          <img src="conquista3.jpg" alt="Conquista BTLucão" />
+          <div class="galeria-overlay">🏆 Campeões</div>
+        </div>
+        <div class="galeria-item">
+          <img src="conquista4.jpg" alt="Conquista BTLucão" />
+          <div class="galeria-overlay">🏆 Campeões</div>
         </div>
       </div>
     </div>
