@@ -107,9 +107,25 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 60px;
+      gap: 48px;
       width: 100%;
-      max-width: 1100px;
+      max-width: 1200px;
+    }
+
+    .hero-foto-lucao {
+      flex-shrink: 0;
+      align-self: flex-start;
+      margin-top: 20px;
+    }
+
+    .hero-foto-lucao img {
+      width: 200px;
+      height: 260px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 16px;
+      border: 3px solid var(--amarelo);
+      box-shadow: 0 0 32px rgba(245,197,24,0.25);
     }
 
     .hero-img-wrap {
@@ -128,6 +144,8 @@
     @media (max-width: 768px) {
       .hero-inner { flex-direction: column; gap: 24px; }
       .hero-side-img { width: 140px; height: 140px; }
+      .hero-foto-lucao { align-self: center; }
+      .hero-foto-lucao img { width: 140px; height: 180px; }
     }
 
     .hero::before {
@@ -886,6 +904,9 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
+      <div class="hero-foto-lucao">
+        <img src="foto-lucao.jpg" alt="Lucão - Treinador de Beach Tennis" />
+      </div>
       <div class="hero-content">
         <div class="hero-fabrica">🏆 FÁBRICA DE CAMPEÕES</div>
         <img src="logo_lucao.png" alt="BTLucão" class="hero-logo" />
